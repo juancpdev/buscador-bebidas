@@ -1,5 +1,6 @@
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { NavLink, useLocation } from "react-router-dom"
+import { useAppStore } from "../stores/useAppStore"
 
 
 export default function Header() {
@@ -7,6 +8,13 @@ export default function Header() {
     const {pathname} = useLocation()
 
     const isHome = useMemo(() => pathname === '/', [pathname])
+    
+    const fetchCategories = useAppStore((state) => state.fetchCategories)
+
+    useEffect(() => {
+        fetchCategories()
+    })
+    
 
     return (
         <header className={isHome ? 'bg-header bg-cover bg-center' : 'bg-slate-800'}>
@@ -34,8 +42,8 @@ export default function Header() {
                 </div>
 
                 {isHome && (
-                <form className="bg-orange-400 md:w-1/2 2xl:w-1/3 rounded-lg shadow p-10 my-20 space-y-6">
-                    <div className="space-y-4">
+                <form className="bg-form opacity-60 hover:opacity-100 transition-all md:w-1/2 2xl:w-1/3 rounded-xl shadow p-9 my-20 space-y-6">
+                    <div className="space-y-2">
                         <label 
                             htmlFor="ingredient" 
                             className="text-white uppercase font-bold"
@@ -50,7 +58,7 @@ export default function Header() {
                             placeholder="Nombre o Ingredientes. Ej. Vodka, Tequila o Cafe" 
                         />
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-2">
                         <label 
                             htmlFor="ingredient" 
                             className="text-white uppercase font-bold"
