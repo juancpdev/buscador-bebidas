@@ -17,8 +17,8 @@ export default function DrinkCard({drink}: DrinkCardProp) {
         </div>
         <button
             type="button"
-            className="bg-gradient-to-r from-orange-200 to-orange-400 text-black w-full font-bold p-3 rounded-b-lg 
-            hover:bg-gradient-to-l hover:from-orange-500 hover:to-orange-500 transition-all"
+            className="bg-gradient-to-tr from-orange-500 to-yellow-300 text-black w-full font-bold p-3 rounded-b-lg 
+            hover:bg-gradient-to-tl hover:from-orange-300 hover:to-yellow-100 transition-all"
         >
             Ver Receta
         </button>

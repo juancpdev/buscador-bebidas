@@ -65,7 +65,7 @@ export default function Header() {
 
                 {isHome && (
                 <form 
-                    className="bg-form opacity-60 hover:opacity-100 transition-all md:w-1/2 2xl:w-1/3 rounded-xl shadow p-9 my-20 space-y-6"
+                    className="bg-gradient-to-tr from-orange-500 to-yellow-300 opacity-85 hover:opacity-100 transition-all md:w-1/2 2xl:w-1/3 rounded-xl shadow p-9 my-20 space-y-6"
                     onSubmit={handleSubmit} 
                 >
                     <div className="space-y-2">
