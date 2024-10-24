@@ -15,6 +15,7 @@ export default function Header() {
     
     const fetchCategories = useAppStore((state) => state.fetchCategories)
     const categories = useAppStore((state) => state.categories)
+    const searchRecipes = useAppStore((state) => state.searchRecipes)
     
     useEffect(() => {
         fetchCategories()
@@ -25,6 +26,16 @@ export default function Header() {
             ...searchFilters,
             [e.target.name]: e.target.value
         })
+    }
+
+    const handleSubmit = (e : React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        if(Object.values(searchFilters).includes('')) {
+            console.log('todos los campos son obligatorios');
+            return
+        }
+        searchRecipes(searchFilters)
     }
 
     return (
@@ -53,7 +64,10 @@ export default function Header() {
                 </div>
 
                 {isHome && (
-                <form className="bg-form opacity-60 hover:opacity-100 transition-all md:w-1/2 2xl:w-1/3 rounded-xl shadow p-9 my-20 space-y-6">
+                <form 
+                    className="bg-form opacity-60 hover:opacity-100 transition-all md:w-1/2 2xl:w-1/3 rounded-xl shadow p-9 my-20 space-y-6"
+                    onSubmit={handleSubmit} 
+                >
                     <div className="space-y-2">
                         <label 
                             htmlFor="ingredient" 
@@ -100,7 +114,7 @@ export default function Header() {
                     <input 
                         type="submit" 
                         value='Buscar Recetas' 
-                        className="cursor-pointer bg-orange-800 hover:bg-orange-900 w-full rounded-lg py-3 text-white uppercase font-bold" 
+                        className="cursor-pointer bg-orange-800 hover:bg-orange-900 w-full rounded-lg py-3 text-white uppercase font-bold"
                     />
                 </form>
             )}
