@@ -1,10 +1,15 @@
+import { useAppStore } from "../stores/useAppStore"
 import { Drink } from "../types"
 
 type DrinkCardProp = {
     drink: Drink
 }
 
+
 export default function DrinkCard({drink}: DrinkCardProp) {
+  
+  const selectRecipe = useAppStore((state) => state.selectRecipe)
+
   return (
     <div className="flex flex-col h-full text-center rounded-lg bg-gray-100 shadow-card">
       
@@ -23,8 +28,9 @@ export default function DrinkCard({drink}: DrinkCardProp) {
 
       <button
         type="button"
-        className="bg-gradient-to-tr from-orange-500 to-yellow-300 text-black w-full font-bold p-3 mt-auto 
+        className="bg-gradient-to-tr from-orange-400 to-yellow-200 text-black w-full font-bold p-3 mt-auto 
         rounded-b-lg hover:bg-gradient-to-tl hover:from-orange-300 hover:to-yellow-100 transition-all"
+        onClick={() => selectRecipe(drink.idDrink)}
       >
         Ver Receta
       </button>
