@@ -6,7 +6,7 @@ export type RecipiesSliceType = {
     categories: Categories
     drinks: Drinks
     selectedRecipe: Recipe
-    modal: boolean
+    modal: boolean  
     fetchCategories: () => Promise<void>
     searchRecipes: (searchFilters : SearchFilters) => Promise<void>
     selectRecipe: (drink: Drink['idDrink']) => Promise<void>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import IndexPage from './pages/IndexPage'
-import FavouritePage from './pages/FavouritePage'
 import Layout from './layouts/Layout'
+import FavoritesPage from './pages/FavoritesPage'
 
 export default function AppRouter() {
   return (
@@ -9,7 +9,7 @@ export default function AppRouter() {
         <Routes>
             <Route element={<Layout/>}>
                 <Route path="/" element={<IndexPage />} index  />
-                <Route path='/favoritos' element={<FavouritePage />} />
+                <Route path='/favoritos' element={<FavoritesPage />} />
             </Route>
         </Routes>
     </BrowserRouter>
