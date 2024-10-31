@@ -6,3 +6,8 @@
     box-shadow: rgb(225, 224, 224) 0 0 8px 1px;
 }
 
+.content { 
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}

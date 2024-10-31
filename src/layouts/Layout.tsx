@@ -15,17 +15,19 @@ export default function Layout() {
   })
 
   return (
-    <>
+    <div className=" grid min-h-screen grid-rows-[auto_1fr_auto]">
         <Header/>
 
-        <main className="container mx-auto py-16">
-          <Outlet/>
-        </main>
-        
-        <Modal/>
-        <Notification/>
+        <div>
+          <main className="container mx-auto py-16">
+            <Outlet/>
+          </main>
+          
+          <Modal/>
+          <Notification/>
+        </div>
 
         <Footer/>
-    </>
+    </div>
   )
 }
